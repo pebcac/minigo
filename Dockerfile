@@ -1,9 +1,11 @@
-FROM redhat/ubi8-minimal:latest
+FROM fedora:latest
 LABEL maintainer="Preston Davis pdavis@pebcac.org"
 USER root
 
 # Install packages
-RUN microdnf install -y \
+RUN dnf install -y \
+zsh \
+chsh \
 git \
 wget \
 fontconfig \
@@ -12,7 +14,7 @@ vim-enhanced \
 net-tools \
 lua \
 vim-minimal \
-mkfontscale && microdnf clean all
+mkfontscale && dnf clean all
 
 # Terminal colors with xterm
 ENV TERM xterm
@@ -20,9 +22,12 @@ ENV TERM xterm
 # Set git variables
 RUN echo "git config --global http.sslVerify false" >> /etc/bashrc
 RUN echo "git config --global user.name 'Preston Davis'" >> /etc/bashrc
-RUN echo "git config --global user.email 'pdavis@redhat.com'" >> /etc/bashrc
+RUN echo "git config --global user.email 'pdavis@pebcac.org'" >> /etc/bashrc
 RUN echo "git config --global user.name 'Preston Davis'" >> /etc/zshrc
-RUN echo "git config --global user.email 'pdavis@redhat.com'" >> /etc/zshrc
+RUN echo "git config --global user.email 'pdavis@pebcac.org'" >> /etc/zshrc
+
+# Install ohmyzsh 
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install jq
 # http://stedolan.github.io/jq/
@@ -62,4 +67,4 @@ RUN bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master
 ENV OSH_THEME=powerline
 
 # Set default terminal to bash
-CMD ["bash"]
+CMD ["zsh"]
