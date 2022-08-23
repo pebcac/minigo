@@ -1,9 +1,10 @@
-FROM redhat/ubi8-minimal:latest
+FROM fedora:latest
 LABEL maintainer="Preston Davis pdavis@pebcac.org"
 USER root
 
 # Install packages
-RUN microdnf install -y \
+RUN dnf install -y \
+zsh \
 git \
 wget \
 fontconfig \
@@ -20,9 +21,9 @@ ENV TERM xterm
 # Set git variables
 RUN echo "git config --global http.sslVerify false" >> /etc/bashrc
 RUN echo "git config --global user.name 'Preston Davis'" >> /etc/bashrc
-RUN echo "git config --global user.email 'pdavis@redhat.com'" >> /etc/bashrc
+RUN echo "git config --global user.email 'pdavis@pebcac.org'" >> /etc/bashrc
 RUN echo "git config --global user.name 'Preston Davis'" >> /etc/zshrc
-RUN echo "git config --global user.email 'pdavis@redhat.com'" >> /etc/zshrc
+RUN echo "git config --global user.email 'pdavis@pebcac.org'" >> /etc/zshrc
 
 # Install jq
 # http://stedolan.github.io/jq/
