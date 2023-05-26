@@ -91,7 +91,7 @@ RUN mkdir -p $HOME/workspace/go
 
 # Set GOPATH
 ENV GOPATH $HOME/workspace/go
-RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
+RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 755 "$GOPATH"
 
 # Set default terminal to bash
 CMD ["zsh"]
