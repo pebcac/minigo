@@ -33,11 +33,9 @@ git \
 wget \
 fontconfig \
 golang \
-neovim \
-net-tools \
+vim-enhanced \
 lua \
 exa \
-podman \
 mkfontscale && dnf clean all && sudo ln -s /usr/bin/python3 /usr/bin/python
 
 # Set git variables
