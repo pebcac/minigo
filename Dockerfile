@@ -35,7 +35,6 @@ fontconfig \
 golang \
 vim-enhanced \
 lua \
-exa \
 mkfontscale && dnf clean all && sudo ln -s /usr/bin/python3 /usr/bin/python
 
 # Add Let's Encrypt CA to OS trusted store
