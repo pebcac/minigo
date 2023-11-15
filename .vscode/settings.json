@@ -1,5 +1,6 @@
 {
     "cSpell.enableFiletypes": [
         "dockerfile"
-    ]
+    ],
+    "openshiftToolkit.crcNameserver": "192.168.199.1"
 }
